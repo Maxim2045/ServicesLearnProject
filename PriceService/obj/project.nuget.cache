@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/nN9OW+Qzp1/NvnjKFQex/TYnmzGBYeBBaNE9oY5Va/pvWqc1XY4yG0gD9Tin4W5UpNmj0jHCFrBTQVZrNAfLA==",
+  "dgSpecHash": "X6Jzsi6igePYp1DNxXmMTcs+SnGGCfpmPFubSTy8g8wYE4dRlyfvLPBEum6v28RtI8MAlHpa1625tubgm5slYA==",
   "success": true,
-  "projectFilePath": "D:\\Загрузки\\Apps\\Services\\PriceService\\PriceService.csproj",
+  "projectFilePath": "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\PriceService\\PriceService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",

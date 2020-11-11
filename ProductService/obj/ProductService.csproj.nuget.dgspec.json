@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Загрузки\\Apps\\Services\\ProductService\\ProductService.csproj": {}
+    "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\ProductService\\ProductService.csproj": {}
   },
   "projects": {
-    "D:\\Загрузки\\Apps\\Services\\ProductService\\ProductService.csproj": {
+    "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\ProductService\\ProductService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Загрузки\\Apps\\Services\\ProductService\\ProductService.csproj",
+        "projectUniqueName": "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\ProductService\\ProductService.csproj",
         "projectName": "ProductService",
-        "projectPath": "D:\\Загрузки\\Apps\\Services\\ProductService\\ProductService.csproj",
+        "projectPath": "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\ProductService\\ProductService.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\Загрузки\\Apps\\Services\\ProductService\\obj\\",
+        "outputPath": "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\ProductService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

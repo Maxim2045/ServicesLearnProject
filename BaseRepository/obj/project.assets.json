@@ -633,11 +633,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Загрузки\\Apps\\Services\\BaseRepository\\BaseRepository.csproj",
+      "projectUniqueName": "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\BaseRepository\\BaseRepository.csproj",
       "projectName": "BaseRepository",
-      "projectPath": "D:\\Загрузки\\Apps\\Services\\BaseRepository\\BaseRepository.csproj",
+      "projectPath": "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\BaseRepository\\BaseRepository.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\Загрузки\\Apps\\Services\\BaseRepository\\obj\\",
+      "outputPath": "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\BaseRepository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

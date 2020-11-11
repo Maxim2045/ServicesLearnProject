@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CkirrAcxvBhabhSwNhF9QDrhhTOmaIlNrh8bV1Xn8xsHDuvb2u9F8s7E0NfRearehtfKtlbsll1poztD2qcZtw==",
+  "dgSpecHash": "tGzLpWp+m57RYjDWxGMZQqvtu7uPvrFynrCbt03T7qeThXmt+DAljdKI4bAQzAOT1DKinwvO5PsdXJI37deXbA==",
   "success": true,
-  "projectFilePath": "D:\\Загрузки\\Apps\\Services\\ProductService\\ProductService.csproj",
+  "projectFilePath": "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\ProductService\\ProductService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.9\\microsoft.aspnetcore.jsonpatch.3.1.9.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.9\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.9.nupkg.sha512",

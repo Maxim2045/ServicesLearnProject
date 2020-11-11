@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Загрузки\\Apps\\Services\\ImageService\\ImageService.csproj": {}
+    "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\ImageService\\ImageService.csproj": {}
   },
   "projects": {
-    "D:\\Загрузки\\Apps\\Services\\ImageService\\ImageService.csproj": {
+    "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\ImageService\\ImageService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Загрузки\\Apps\\Services\\ImageService\\ImageService.csproj",
+        "projectUniqueName": "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\ImageService\\ImageService.csproj",
         "projectName": "ImageService",
-        "projectPath": "D:\\Загрузки\\Apps\\Services\\ImageService\\ImageService.csproj",
+        "projectPath": "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\ImageService\\ImageService.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\Загрузки\\Apps\\Services\\ImageService\\obj\\",
+        "outputPath": "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\ImageService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

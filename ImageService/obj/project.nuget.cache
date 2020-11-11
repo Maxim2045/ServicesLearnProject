@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nc4iSKoh7TwcM+3Zhy+wCJBP4cJlvgRx61WmaHniFgkE+tuC4aOj+iuAJt8Yq119RRLa7mDwRSApirs+wa4irQ==",
+  "dgSpecHash": "0GKq1jsIAWL4x0gyXCZLzuhz5hfJBk11OrgyptyjCrRI3m5128zl6O5V4ONR1w6MssMFb/KAHuHHIhMxhCNKaA==",
   "success": true,
-  "projectFilePath": "D:\\Загрузки\\Apps\\Services\\ImageService\\ImageService.csproj",
+  "projectFilePath": "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\ImageService\\ImageService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.9\\microsoft.aspnetcore.jsonpatch.3.1.9.nupkg.sha512",
