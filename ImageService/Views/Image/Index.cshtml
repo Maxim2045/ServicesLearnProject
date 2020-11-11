@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ImageService.Models.Image>
+@{
+    ViewBag.Title = "Все изображения";
+}
+<a asp-action="Create">Добавить изображение</a>
+<table class="table">
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.ProductId</td>
+        <td>@item.Url</td>
+    
+            <td>
+                <a asp-action="Details" asp-controller="Image" asp-route-id="@item.Id">Подробнее</a> |
+                <a asp-action="Edit" asp-controller="Image" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Delete" asp-controller="Image" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+        }
+    </table>

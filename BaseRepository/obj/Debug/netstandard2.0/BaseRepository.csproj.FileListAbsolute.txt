@@ -1,0 +1,4 @@
+D:\Projects\TestProjects\BaseRepository\obj\Debug\netstandard2.0\BaseRepository.csprojAssemblyReference.cache
+D:\Projects\TestProjects\BaseRepository\obj\Debug\netstandard2.0\BaseRepository.AssemblyInfoInputs.cache
+D:\Projects\TestProjects\BaseRepository\obj\Debug\netstandard2.0\BaseRepository.AssemblyInfo.cs
+D:\Projects\TestProjects\BaseRepository\obj\Debug\netstandard2.0\BaseRepository.csproj.CoreCompileInputs.cache
