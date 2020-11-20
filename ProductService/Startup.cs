@@ -9,9 +9,11 @@ using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Refit;
-using WebApiService.Clients;
+using ProductService.Clients;
+using Microsoft.OpenApi.Models;
 
-namespace WebApiService
+
+namespace ProductService
 {
     public class Startup
     {
@@ -32,6 +34,7 @@ namespace WebApiService
                 options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                 options.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Ignore;
             });
+            services.AddEntityFrameworkNpgsql().AddDbContext<ProductContext>();
 
             var refitSettings = new RefitSettings
             {

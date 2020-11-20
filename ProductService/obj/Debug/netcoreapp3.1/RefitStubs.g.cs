@@ -30,12 +30,12 @@ namespace ProductService.RefitInternalGenerated
 
 #pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
 #pragma warning disable CS8669 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context. Auto-generated code requires an explicit '#nullable' directive in source.
-namespace WebApiService.Clients
+namespace ProductService.Clients
 {
     using global::System.Collections.Generic;
     using global::System.Threading.Tasks;
     using global::Refit;
-    using global::WebApiService.Models;
+    using global::ProductService.Models;
 
     /// <inheritdoc />
     [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
@@ -65,12 +65,12 @@ namespace WebApiService.Clients
     }
 }
 
-namespace WebApiService.Clients
+namespace ProductService.Clients
 {
     using global::System.Collections.Generic;
     using global::System.Threading.Tasks;
     using global::Refit;
-    using global::WebApiService.Models;
+    using global::ProductService.Models;
 
     /// <inheritdoc />
     [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]

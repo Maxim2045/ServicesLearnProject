@@ -1,6 +1,6 @@
 using System;
 
-namespace WebApiService.Models
+namespace ProductService.Models
 {
     public class Image
     {

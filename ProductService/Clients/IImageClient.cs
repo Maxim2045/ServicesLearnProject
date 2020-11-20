@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Refit;
-using WebApiService.Models;
+using ProductService.Models;
 
-namespace WebApiService.Clients
+namespace ProductService.Clients
 {
     public interface IImageClient
     {

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "7wSSmcQuFSnjiuPr9XjrAO9IVtVIlP6mSDX8D1KMiWp8y8A/ARv8h1bIzIKPUKRo91k0rUQsSec+xaOE5/VOtA==",
+  "success": true,
+  "projectFilePath": "D:\\Загрузки\\Apps\\Services\\ServicesLearnProject\\WebUI\\WebUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\refit\\5.2.1\\refit.5.2.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
+  ],
+  "logs": []
+}
