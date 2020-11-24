@@ -1,8 +1,25 @@
-﻿@{
+﻿@model IEnumerable<WebUI.Models.Product>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<head>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <h1>Все автомобили</h1>
+    <div class=" row mt-5 mb-2">
+        @foreach (var product in Model)
+        {
+            <div class="col-lg-4">
+                <img class="img-thumbnail" src=@product.Image alt=@product.Name />
+                <h2>@product.Name</h2>
+                <p>Цена: @product.Price</p>
+                <p>Описание: @product.Description</p>
+                <p><a class="btn btn-warning" href="#">Подробнее</a></p>
+            </div>
+        }
+    </div>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>

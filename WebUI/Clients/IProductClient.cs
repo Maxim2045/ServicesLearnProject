@@ -1,11 +1,15 @@
-﻿using System;
+﻿using Refit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebUI.Models;
 
 namespace WebUI.Clients
 {
-    interface IProductClient
+    public interface IProductClient
     {
+        [Get("/product")]
+        Task<IEnumerable<Product>> GetAll();
     }
 }

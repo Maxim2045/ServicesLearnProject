@@ -1,105 +1,59 @@
-﻿using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using ImageService.Repositories;
+using ImageService.Interfaces;
 using ImageService.Models;
-using System;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ImageService.Controllers
 {
-    //[ApiController]
-    //[Route("[controller]")]
+    [ApiController]
+    [Route("api/images")]
     public class ImageController : Controller
     {
-        private readonly ImageContext _imageContext;
-        public ImageController(ImageContext imageContext)
-            {
-            _imageContext = imageContext;
-            }
-        //public static Guid TryStrToGuid(String s, out Guid value)
-        //{
-        //    try
-        //    {
-        //        value = new Guid(s);
-        //        return value;
-        //    }
-        //    catch (FormatException)
-        //    {
-        //        value = Guid.Empty;
-        //        return value;
-        //    }
-        //}
-        public async Task<IActionResult> Index()
+        private readonly IMapper _mapper;
+        private readonly IImageService _imageService;
+
+        public ImageController(IMapper mapper, IImageService imageService)
         {
-            return View(await _imageContext.Images.ToListAsync());
-        }
-       
-        public IActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> Create(Image image)
-        {
-            _imageContext.Images.Add(image);
-            await _imageContext.SaveChangesAsync();
-            return RedirectToAction("Index");
-        }
-        public async Task<IActionResult> Details(Guid id)
-        {
-            if (id != null)
-            {
-                Image image = await _imageContext.Images.FirstOrDefaultAsync(p => p.Id == id);
-                if (image != null)
-                    return View(image);
-            }
-            return NotFound();
-        }
-        public async Task<IActionResult> Edit(Guid id)
-        {
-            if (id != null)
-            {
-                Image image = await _imageContext.Images.FirstOrDefaultAsync(p => p.Id == id);
-                if (image != null)
-                    return View(image);
-            }
-            return NotFound();
-        }
-        [HttpPost]
-        public async Task<IActionResult> Edit(Image image)
-        {
-            _imageContext.Images.Update(image);
-            await _imageContext.SaveChangesAsync();
-            return RedirectToAction("Index");
+            _mapper = mapper;
+            _imageService = imageService;
         }
 
         [HttpGet]
-        [ActionName("Delete")]
-        public async Task<IActionResult> ConfirmDelete(Guid id)
+        public async Task<IEnumerable<Image>> GetAll()
         {
-            if (id != null)
-            {
-                Image image = await _imageContext.Images.FirstOrDefaultAsync(p => p.Id == id);
-                if (image != null)
-                    return View(image);
-            }
-            return NotFound();
+            var imageRepository = await _imageService.GetAll();
+            return _mapper.Map<IEnumerable<Image>>(imageRepository);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<Image> Get(Guid id)
+        {
+            var imageRepository = await _imageService.Get(id);
+            return _mapper.Map<Image>(imageRepository);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task Create(Image image)
         {
-            if (id != null)
-            {
-                Image image = await _imageContext.Images.FirstOrDefaultAsync(p => p.Id == id);
-                if (image != null)
-                {
-                    _imageContext.Images.Remove(image);
-                    await _imageContext.SaveChangesAsync();
-                    return RedirectToAction("Index");
-                }
-            }
-            return NotFound();
+            var imageRepository = _mapper.Map<ImageRepository>(image);
+            await _imageService.Create(imageRepository);
+        }
+
+        [HttpPut]
+        public async Task Update(Image image)
+        {
+            var imageRepository = _mapper.Map<ImageRepository>(image);
+            await _imageService.Update(imageRepository);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task Delete(Guid id)
+        {
+            await _imageService.Delete(id);
         }
     }
 }

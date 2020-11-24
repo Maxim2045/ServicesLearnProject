@@ -1,15 +1,15 @@
-using System;
-using System.Net.Http;
+using AutoMapper;
+using ImageService.Configuration;
+using ImageService.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using Refit;
+using Microsoft.OpenApi.Models;
 
 namespace ImageService
 {
@@ -25,25 +25,26 @@ namespace ImageService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string connection = Configuration.GetConnectionString("DefaultConnection");
-            // добавляем контекст MobileContext в качестве сервиса в приложение
-            services.AddDbContext<ImageContext>(options =>options.UseSqlServer(connection));
-            //services.AddControllersWithViews();
-            //services.AddMvc().AddNewtonsoftJson();
-            //services.AddControllers().AddNewtonsoftJson(options =>
-            //{
-            //    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            //    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
-            //    options.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Ignore;
-            //});
-            
-            //services.AddSwaggerGenNewtonsoftSupport();
-            //services.AddSwaggerGen();
             services.AddControllers();
-            services.AddControllersWithViews(mvcOtions =>
+            services.AddSwaggerGen(c =>
             {
-                mvcOtions.EnableEndpointRouting = false;
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "ImageService", Version = "v1"});
             });
+
+            services.AddAutoMapper(typeof(Startup));
+
+            var mapperConfig = new MapperConfiguration(config =>
+            {
+                config.AddProfile(new AutoMapping());
+            });
+
+            var mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<ImageContext>(options => options.UseSqlServer(connectionString));
+            services.AddTransient<IImageService, Services.ImageService>();
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,15 +53,17 @@ namespace ImageService
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ImageService v1"));
             }
 
-            app.UseStaticFiles();
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Image}/{action=Index}/{id?}");
-            });
+            app.UseHttpsRedirection();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

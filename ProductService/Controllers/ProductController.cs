@@ -9,6 +9,9 @@ using Microsoft.Extensions.Logging;
 using ProductService.Models;
 using ProductService.Clients;
 using Microsoft.EntityFrameworkCore;
+using ProductService.Interfaces;
+using AutoMapper;
+using ProductService.Repositories;
 
 namespace ProductService.Controllers
 {
@@ -18,103 +21,48 @@ namespace ProductService.Controllers
     public class ProductController : ControllerBase
     {
 
-        /*   private readonly IImageClient _imageClient;
-           private readonly IPriceClient _priceClient;
+        private readonly IProductService _productService;
+        private readonly IMapper _mapper;
+        
 
-           public ProductController( IImageClient imageClient, IPriceClient priceClient)
-           {
-
-               _imageClient = imageClient;
-               _priceClient = priceClient;
-           }*/
-
-        /* [HttpGet("/products")]
-         public async Task<IEnumerable<Product>> Get()
-         {
-             var rng = new Random();
-             var images = await _imageClient.GetAll();
-             var prices = await _priceClient.GetAll();
-
-             return Enumerable.Range(1, 5).Select(index => new Product{
-                 Id = Guid.NewGuid(),
-                 Name = $"Product{new Random().Next()}",
-                 Description = "Description of product",
-                 Image = images,
-                 Price = prices
-             }).ToArray();
-         }*/
-        private readonly ProductContext db;
-        public ProductController(ProductContext context)
+        public ProductController(IProductService productService, IMapper mapper)
         {
-            db = context;
-            if (!db.Products.Any())
-            {
-                db.Products.Add(new Product { Name = "Tesla", Description = "Over price" });
-                db.Products.Add(new Product { Name = "Honda", Description = "Fast and fury" });
-                db.SaveChanges();
-            }
+            _productService = productService;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> Get()
+        public async Task<IEnumerable<Product>> GetAll()
         {
-            return await db.Products.ToListAsync();
+            var productDb = await _productService.GetAll();
+            return _mapper.Map<IEnumerable<Product>>(productDb);
         }
 
-        // GET api/users/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> Get(Guid id)
+        public async Task<Product> Get(Guid id)
         {
-            Product product = await db.Products.FirstOrDefaultAsync(x => x.Id == id);
-            if (product == null)
-                return NotFound();
-            return new ObjectResult(product);
+            var productDb = await _productService.Get(id);
+            return _mapper.Map<Product>(productDb);
         }
 
-        // POST api/users
         [HttpPost]
-        public async Task<ActionResult<Product>> Post(Product product)
+        public async Task Create(Product product)
         {
-            if (product == null)
-            {
-                return BadRequest();
-            }
-
-            db.Products.Add(product);
-            await db.SaveChangesAsync();
-            return Ok(product);
+            var productDb = _mapper.Map<ProductDb>(product);
+            await _productService.Create(productDb);
         }
 
-        // PUT api/users/
         [HttpPut]
-        public async Task<ActionResult<Product>> Put(Product product)
+        public async Task Update(Product product)
         {
-            if (product == null)
-            {
-                return BadRequest();
-            }
-            if (!db.Products.Any(x => x.Id == product.Id))
-            {
-                return NotFound();
-            }
-
-            db.Update(product);
-            await db.SaveChangesAsync();
-            return Ok(product);
+            var productDb = _mapper.Map<ProductDb>(product);
+            await _productService.Update(productDb);
         }
 
-        // DELETE api/users/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Product>> Delete(Guid id)
+        public async Task Delete(Guid id)
         {
-            Product product = db.Products.FirstOrDefault(x => x.Id == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-            db.Products.Remove(product);
-            await db.SaveChangesAsync();
-            return Ok(product);
+            await _productService.Delete(id);
         }
     }
 }
